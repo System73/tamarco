@@ -1,0 +1,34 @@
+system:
+  deploy_name: test_tamarco
+  system_configuration:
+    profile: DEVELOP
+  logging:
+    profile: DEVELOP
+    file_path: false
+    stdout: true
+    redis:
+      enabled: false
+      host: "127.0.0.1"
+      port: 7006
+      password: ''
+      ssl: false
+  microservices:
+    test:
+      logging:
+        profile: DEVELOP
+        file: false
+        stdout: true
+  resources:
+    metrics:
+      handlers:
+        file:
+          path: /tmp/metrics
+      collect_frequency: 1
+    status:
+      host: 127.0.0.1
+      port: 5747
+      debug: False
+    http:
+      host: 127.0.0.1
+      port: 5747
+      debug: false
