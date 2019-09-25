@@ -1,0 +1,26 @@
+language: python
+services:
+  - docker
+# The default distribution (ubuntu 14.04) don't support Python 3.7.
+dist: xenial
+python:
+  - "3.6"
+  - "3.7"
+install:
+  - pip install -r requirements_dev.txt
+script: make test && make linters
+notifications:
+  email:
+    - opensource@system73.com
+deploy:
+  provider: pypi
+  user:
+    secure: "nHCsrwNg0eqwzx1hhbR4prX2pP2AhIPVp1Gtb4OY41FK5xLC8n1YE+/+6qj8E6OiepgaGTkxCAmqfy7ldgI3JXylEvynoJ/gav7EoW7OpXA3G+9ns9BLd6x5jHAIlAntEkVPU4oBghgq29Iv7D8jVXnrhAVV8CP5PV22idjDtxwWPwCHk6nSBy5FdsB3pI6hex+zWRrx5WMU4PjtNXOaZ2wTkFb2NHrHXxWGOLTyZ/7TXE5aAqBYdU602pMk9m2zI8lq4KwybAVGGuAIBDOaNHA4ST4u4BQx1CdiW04REBtTsoS7yltX6pnexCom2ibA/It6HZyJ6GrFgUM6PEBm3TQbB5NGkPYHy50SJ6RwR3+71KZZw7b3sl5ZNpU0GQKn4/lTU5pcveYiPLWVXdk8HWfUqmvZnGuLuipXFqWdomT1tW+9B0cgKkxkh7Kf6pUyxkWF6It76eHETLgZnit1DSgt29e53+TTZ/iZB4f9/vcXV27RMNEuJAlHkC13Pu2iEzo88kYiLU4jMn2t7DeQ/Cf1fz5RQllbmxJxejZmTXxJCi7+MINOCweP8D2odxJqeiVbOHE0GDb6ZYs8p6cSk4gCjtI53uxkT6HKNKgTGDrAeCU+683i95von4BlMCuIKlzHCEQvQWiJFiV/LGdQbwNA67lRd4cf+gLJn5RLS9E="
+  password:
+    secure: "nXYdB/bF2Vfxo3ZbAVRBufIQ/j76ipW6OFAHzux04R2AtlYDr2ozbYy4E8v+bGwp7U52dxEOXQhEgWqUHcUyjquIEk6FwP3Q25d0ekG8NrMC11gOkE+mqzhiu4PZTExK3xxGsasNN5ovM4azAREyF2Vv/DzWzq1fK1dSF2vcLd+UEZc0VfhOfpDSP1dQNRUUFw9UUOQci78n5l5SOBTQNptWdE7UK0kDXsunE7KHqMr9vG3/87p7UJMMtVQVPopI3ehfW0/u/fSc7+MFNqGRRDMe+MJgTXm/9XUxy8S3yNv8gT6Ng4jeCP9ng2cl4h3jAAe+3e++HiCMnTMGC1nxBNYKh7spYYNiK7wTgkeoasWst9rRNWbR7V2rSFLJy1nH2HZ6LWvxH+PCLpWZMrlFZDg0RjzrN1Sp3+IU3kzt5rvQAseCFv/aR9N9kw1MQrwJs8geL5lcOmNTWZj80QoldHhOkVp8xK2FqHrbomhqOGfEMYuWDOlnHQ3zqxOuuAAXa1bry1ALXZoYXt8feXKmXEog34ptM2w2VgTUfwNuT4JkQdC0qm/nifkMkWvLGk4d8sITsYCunlPOvXDilUkGmiNaMRowsiKMG/tZfdfh9lruJUALVr7y/Okbz/+E61IVx1LLekFWgKJw5juRjhl2aVDFjmCWXcNVky7CRcZ6k4I="
+  # Necessary when the build has more than one job (Travis uses one job per Python version).
+  # With this setting only the first job upload the package to pypi, preventing the others from failing.
+  skip_existing: true
+  on:
+    tags: true
+    branch: master

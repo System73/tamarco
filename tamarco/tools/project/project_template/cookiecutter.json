@@ -1,0 +1,8 @@
+{
+    "project_name": "tamarco_microservice",
+    "project_slug": "my_microservice",
+    "full_name": "tamarco user",
+    "email": "myemail@myemail.com",
+    "version": "0.1.0",
+    "project_short_description": "My cool microservice"
+}

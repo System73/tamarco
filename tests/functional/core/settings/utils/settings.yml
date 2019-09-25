@@ -1,0 +1,24 @@
+key_1: 1000
+key_2: "1000"
+key_3: 1000.0
+key_4: !!float 1000
+key_5: !!str 1000
+key_6: !!str Yes
+key_7: Yes
+one_level:
+    key_1: 1000
+    key_2: "1000"
+    key_3: 1000.0
+    key_4: !!float 1000
+    key_5: !!str 1000
+    key_6: !!str Yes
+    key_7: Yes
+two_levels:
+    intermediate_level:
+        key_1: 1000
+        key_2: "1000"
+        key_3: 1000.0
+        key_4: !!float 1000
+        key_5: !!str 1000
+        key_6: !!str Yes
+        key_7: Yes

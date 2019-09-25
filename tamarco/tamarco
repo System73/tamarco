@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+"""
+CLI to manage tamarco stuff for example the scaffolding of a new microservice or the launch of all the ci stuff
+"""
+import fire
+
+import tamarco
+from tamarco.tools import ci
+from tamarco.tools import etcd
+from tamarco.tools.project import start_project
+
+tamarco_client = {
+    'ci': ci.main,
+    'start_project': start_project.main,
+    'etcd': etcd.main,
+    'version': lambda: print(f"tamarco version {tamarco.__version__}"),
+}
+
+
+if __name__ == "__main__":
+    fire.Fire(tamarco_client)
