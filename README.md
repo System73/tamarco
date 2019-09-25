@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/System73/tamarco.svg?branch=master)](https://travis-ci.com/System73/tamarco)
 [![Build Documentation](https://readthedocs.org/projects/tamarco/badge/?version=latest)](https://tamarco.readthedocs.io/en/latest/)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=System73_tamarco&metric=coverage)](https://sonarcloud.io/dashboard?id=System73_tamarco)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=System73_tamarco&metric=alert_status)](https://sonarcloud.io/dashboard?id=System73_tamarco)
 
 Microservices framework designed for asyncio and Python.
 
