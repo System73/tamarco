@@ -2,13 +2,19 @@ language: python
 services:
   - docker
 # The default distribution (ubuntu 14.04) don't support Python 3.7.
-dist: xenial
-python:
-  - "3.6"
-  - "3.7"
+matrix:
+  include:
+    - dist: trusty
+      python: "3.6"
+      script:
+        - make test-coverage
+        - make linters
+        - sonar-scanner
+    - dist: xenial
+      python: "3.7"
+      script: make test
 install:
   - pip install -r requirements_dev.txt
-script: make test && make linters
 notifications:
   email:
     - opensource@system73.com
@@ -24,3 +30,11 @@ deploy:
   on:
     tags: true
     branch: master
+# Allow SonarCloud to access the full SCM history.
+git:
+  depth: false
+addons:
+  sonarcloud:
+    organization: "system73"
+    token:
+      secure: "QJKV4sWic7jeuVgBrLFpCLg215ilpyxPDwef53cNYaZet6htAa26riL0TOgLeKEm4RTqOvAWFR9mYxIyiLh9BHkbiPUKYYyzsJaUqvX3PlqsO/1EPbD1CZ3FVGdP04W7+OM7Q6umchYALgo+A/bz5OdVEVMa4y3wqZCbFautVp4V8KBbrbKP8xvOCQmgM/GETuU6wYyl0EUPzxKba0XxkI9ZHAcIOLEj+Njyy+GumnSwyuI84TYyKR6HDy4wrm6GEIC6hoXqFm+XAV3nYECOsph91M6EycmdwsqIInLz/yS/GBSFpCBzyXTIIUWCLNawK6oSbh0Y67wXLzir5w7dfMuFKxWkutH0jmYbNrpSFK9MYPoCV5YKYRfvsN7spSsPKuq+Lkv4iSxzRGHgJNznA/eosJjNp1ieBzdkLG7Zz32I4kgbZjhJnohmK9jeezof/YC1lki0CSmu0RZ77oZPpEnOU9b0go6cSJlRSFe8OmWAP2T/ycBgfbBRoLf1ZzSfC6qeXMGz4l/uoM5g6lHZdFHbYBCOhWqcRSFbwRZzFdO6LyIoykF44s+Npkdnv7bGnWek+V+h2O8pdfgltnd72MAJUTsyHZyDST+sUuwdWTtO0YsSq9+J4h+ddPQ3rR2z3S/L/YzVHVOoB7BuC3IRBzVPjDUoJZRwstInmYmsqyo="
