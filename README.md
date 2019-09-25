@@ -1,6 +1,7 @@
 # Tamarco
 
 [![Build Status](https://travis-ci.com/System73/tamarco.svg?branch=master)](https://travis-ci.com/System73/tamarco)
+[![Build Documentation](https://readthedocs.org/projects/tamarco/badge/?version=latest)](https://tamarco.readthedocs.io/en/latest/)
 
 Microservices framework designed for asyncio and Python.
 
@@ -40,7 +41,9 @@ Let us know if you have written a resource.
 
 ## Documentation
 
-Can be built doing a `make docs`. It will be publicly available soon.
+The documentation is available [here][readthedocs_latest].
+
+[readthedocs_latest]: https://tamarco.readthedocs.io/en/latest/
 
 ## Examples
 

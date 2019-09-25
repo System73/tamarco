@@ -5,14 +5,14 @@ Tamarco is written and maintained by the System73 Engineering Team.
 * Alexis Lopez
 * Ayoze Fernández @ay0o
 * Elena Curbelo @ecurbelo
-* Jesus Rubio @barrenao
+* Jesús Rubio @barrenao
 * José Melero @jmf-mordis
-* Victor Pérez @ivictorpd
+* Víctor Pérez @ivictorpd
 
 
 # Previous members of the core team
 
-* Raul Marrero @rulox
+* Raúl Marrero @rulox
 * Sara Báez @Syrka
 * Sergio Medina, main design of the framework @lumasepa
 

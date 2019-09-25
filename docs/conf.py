@@ -57,7 +57,7 @@ author = "System73"
 # built documents.
 #
 # The short X.Y version.
-version = "0.13.1"
+version = "0.1.0"
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -147,7 +147,7 @@ texinfo_documents = [
         "Tamarco Documentation",
         author,
         "Tamarco",
-        "Microservices Framework that aims to accomplish the 12 Factor app",
+        "Microservices framework designed for asyncio and Python",
         "Miscellaneous",
     )
 ]
