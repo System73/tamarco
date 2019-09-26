@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import sys
-import time
+import threading
 import uuid
 from collections import OrderedDict
 from collections.abc import Callable
@@ -291,7 +291,7 @@ class Microservice(MicroserviceBase):
         try:
             self.loop.run_until_complete(self._setup())
             self.loop.run_forever()
-        except Exception:
+        except BaseException:
             self.logger.critical(
                 "Unexpected exception in the setup or during the run of the loop, stopping the " "microservice",
                 exc_info=True,
@@ -302,18 +302,28 @@ class Microservice(MicroserviceBase):
         """Stop the microservice gracefully.
         Shut down the microservice. If after 30 seconds the microservice is not closed gracefully it forces a exit.
         """
-
-        thread = Thread(target=self._wait_and_force_exit)
+        stop_event = threading.Event()
+        thread = Thread(target=lambda: self._wait_and_force_exit(stop_event))
         thread.start()
-        await self.stop()
-        await self.post_stop()
-        if self.loop.is_running():
-            self.loop.stop()
+        try:
+            await self.stop()
+        except Exception:
+            logger.exception("Unexpected exception calling stop stage")
+        try:
+            await self.post_stop()
+        except Exception:
+            logger.exception("Unexpected exception calling post_stop stage")
+        self.logger.info("Stop stages completed")
+        stop_event.set()
+        thread.join()
+        exit(0)
 
-    def _wait_and_force_exit(self):
-        time.sleep(30)
-        self.logger.critical("Error stopping all the resources. Forcing exit.")
-        exit(1)
+    def _wait_and_force_exit(self, stop_event):
+        try:
+            stop_event.wait(30)
+        except TimeoutError:
+            self.logger.critical("Error stopping all the resources, forcing exit")
+            exit(1)
 
 
 def task(name_or_fn):
