@@ -26,18 +26,21 @@ into the framework transparently for the user.
 The framework allows to write external resources and integrate them in the lifecycle of a microservice easily. List with
  the available resources:
 
-* Metrics.
-* Registry.
-* Status.
-* Profiler.
-* Memory analizer.
-* HTTP.
-* Kafka. Not released yet.
-* AMQP. Not released yet.
-* Postgres. Not released yet.
-* Influxdb. Not released yet.
-* Redis. Not released yet.
-* Websocket. Not released yet.
+* Metrics
+* Registry
+* Status
+* Profiler
+* Memory analizer
+* HTTP
+* [Kafka][kafka_resource]
+* [AMQP][amqp_resource]
+* Postgres (not released yet)
+* Influxdb (not released yet)
+* Redis (not released yet)
+* Websocket (not released yet)
+
+[kafka_resource]: https://github.com/System73/tamarco-kafka
+[amqp_resource]: https://github.com/System73/tamarco-amqp
 
 Let us know if you have written a resource.
 
