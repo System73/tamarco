@@ -23,8 +23,15 @@ class Registry(BaseResource, metaclass=Singleton):
         self.etcd_client = None
         self.register_task = None
         self.logger = logging.getLogger("tamarco.registry")
-        self.own_ip = socket.gethostbyname(socket.gethostname())
+        self.own_ip = self._get_own_ip()
         super().__init__(*args, **kwargs)
+
+    def _get_own_ip(self):
+        try:
+            return socket.gethostbyname(socket.gethostname())
+        except Exception:
+            self.logger.exception("Could not determine the IP to expose in the registry resource")
+            return "Unknown"
 
     async def post_start(self):
         enabled_setting = await self.settings.get("enabled", False)
