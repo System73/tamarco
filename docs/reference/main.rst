@@ -26,10 +26,6 @@ Settings
 .. automodule:: tamarco.core.settings.settings
    :members:
 
-.. automodule:: tamarco.core.settings.settings_proxy
-   :members:
-
-
 ---------
 Resources
 ---------
