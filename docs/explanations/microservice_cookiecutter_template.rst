@@ -1,3 +1,5 @@
+.. _microservice_cookiecutter_template:
+
 Microservice cookicutter template
 =================================
 

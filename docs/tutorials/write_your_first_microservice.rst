@@ -28,7 +28,7 @@ This command will ask you a few questions to get a minimum service configuration
 folder named with the chosen `project_name`. The main script file is called `microservice.py` and for simplification, we
 will code all our example in this file.
 
-More information about the microservice code generation `here <../explanations/microservice_cookiecutter_template>`_.
+More information about the microservice code generation: :ref:`microservice_cookiecutter_template`.
 
 
 Our microservice step by step
@@ -51,8 +51,8 @@ The code generated in `microservice.py` is very simple:
 
 In the previous code, we can see that our service inherits from the Tamarco base class `Microservice`. This class will
 be the base of all the microservices and it is responsible for starting all the resources and at the same time stop all
-the resources properly when the microservice exits. It has several execution stages in its lifecycle, more information
-`here <../explanations/microservice_base_class>`_.
+the resources properly when the microservice exits. It has several execution stages in its lifecycle. For more
+information see: :ref:`microservice_base_class`.
 
 The next step is to declare the Postgres resource we want to use:
 
@@ -68,8 +68,8 @@ The next step is to declare the Postgres resource we want to use:
 
 
 In a production environment, we normally get the service settings/configuration from a storage service like etcd, but
-to simplify, now we set the required configuration using an internal function. More info about the Tamarco settings
-`here <../explanations/a_walk_around_the_settings>`_.
+to simplify, now we set the required configuration using an internal function. More info about the Tamarco settings in:
+:ref:`a_walk_around_the_settings`.
 
 
 .. code-block:: python

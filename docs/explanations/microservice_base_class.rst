@@ -1,3 +1,5 @@
+.. _microservice_base_class:
+
 Microservice base class
 =======================
 

@@ -1,3 +1,5 @@
+.. _a_walk_around_the_settings:
+
 A walk around the settings
 ==========================
 
@@ -64,17 +66,17 @@ This prevents the microservices from reading the settings before the environment
 
 All the other tamarco settings are inside a root_path named “system”. The settings under the root path are:
 
-* Deploy_name. Name that identifies a deploy, used by default by logging and metrics resources with the purpose of
-distinct logs and metrics from different deploys. Possible use cases: allow to filter logs of deploys in different
-regions or by develop, staging and production with the same monitoring system.
+* | Deploy_name. Name that identifies a deploy, used by default by logging and metrics resources with the purpose of
+  | distinct logs and metrics from different deploys. Possible use cases: allow to filter logs of deploys in different
+  | regions or by develop, staging and production with the same monitoring system.
 
-* Logging: Configuration of the logging of the system, it is out of resources because this configuration can’t be
-avoided since it is a core component, all the microservices and all resources emit logs. More information about the
-possible configuration in [TODO link to logging section].
+* | Logging: Configuration of the logging of the system, it is out of resources because this configuration can’t be
+  | avoided since it is a core component, all the microservices and all resources emit logs. More information about the
+  | possible configuration in [TODO link to logging section].
 
-* Resources: configurations of the resources of the system, it can be used by one or more microservices.
-:ref:`setup_setting_for_a_resource`
+* | Resources: configurations of the resources of the system, it can be used by one or more microservices. See:
+  | :ref:`setup_setting_for_a_resource`.
 
-* Microservice: configuration of the business logic of each microservice. This section also has a special property,
-all the other settings can be configured by in this section for a specific microservice.
-:ref:`setup_setting_for_a_specific_microservice`.
+* | Microservice: configuration of the business logic of each microservice. This section also has a special property,
+  | all the other settings can be configured by in this section for a specific microservice. See:
+  | :ref:`setup_setting_for_a_specific_microservice`.
