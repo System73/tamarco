@@ -4,7 +4,7 @@ from logging.handlers import QueueHandler, QueueListener
 from tamarco.resources.basic.metrics.meters import Counter
 
 MAX_QUEUE_SIZE = 10000
-TOLERANCE_PERCENTAGE = 2
+TOLERANCE_PERCENTAGE = 0
 VALUE_TOLERANCE_PERCENTAGE = int(MAX_QUEUE_SIZE * (1 - (TOLERANCE_PERCENTAGE / 100)))
 
 
@@ -27,10 +27,14 @@ class QueueHandlerAsyncHandler(QueueHandler):
             record (LogRecord): Entry log record.
         """
         queue_size = self.queue.qsize()
-        if queue_size < VALUE_TOLERANCE_PERCENTAGE:
-            self.queue.put_nowait(record)
-        else:
+        try:
+            if queue_size < VALUE_TOLERANCE_PERCENTAGE:
+                self.queue.put_nowait(record)
+            else:
+                self.counter_overflow_queue.inc()
+        except queue.Full:
             self.counter_overflow_queue.inc()
+            print(f"Queue is full")
 
     def prepare(self, record):
         """To avoid exc_info from being deleted QueueHandler.prepare() sets exc_info to None and calls
