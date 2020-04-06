@@ -1,7 +1,7 @@
-import pytest
 import sys
-import redis
 
+import pytest
+import redis
 from redis.exceptions import ConnectionError, TimeoutError
 
 
