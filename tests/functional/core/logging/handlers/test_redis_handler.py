@@ -1,6 +1,6 @@
 import time
-
 from logging import LogRecord
+
 from tamarco.core.logging.handlers.redis import AsyncRedisHandler
 
 
