@@ -1,6 +1,5 @@
 import socket
 import time
-
 from datetime import datetime
 from logging import LogRecord
 
