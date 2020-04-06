@@ -1,7 +1,9 @@
 import pytest
-import redis
 import sys
+import redis
+
 from redis.exceptions import ConnectionError, TimeoutError
+
 
 @pytest.fixture
 def client_redis():

@@ -1,10 +1,12 @@
 import time
-from tamarco.core.logging.handlers.redis import AsyncRedisHandler
+
 from logging import LogRecord
+from tamarco.core.logging.handlers.redis import AsyncRedisHandler
+
 
 def test_redis_handler(client_redis):
     handler = AsyncRedisHandler()
-    for i in range(10):
+    for _ in range(10):
         log_record = LogRecord(
             name="test_logging_ColoredFormatter_format",
             level=1,
@@ -22,6 +24,3 @@ def test_redis_handler(client_redis):
     assert b'logstash' == key
     vals = client_redis.lrange(key, 0, -1)
     assert 10 == len(vals)
-
-
-
