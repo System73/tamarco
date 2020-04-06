@@ -119,7 +119,10 @@ def test_logging_async_wrapper_handler():
 
     assert not HandlerCheck.check_data
 
-    for _ in range(80):
+    async_wrapper.listener.stop()
+    time.sleep(2)
+
+    for i in range(80):
         log_record = LogRecord(
             name="test_logging_ColoredFormatter_format",
             level=1,
@@ -134,9 +137,11 @@ def test_logging_async_wrapper_handler():
         log_record_array_inter.append(log_record)
         async_wrapper.emit(log_record)
 
-    for _ in range(80):
+    for i in range(80):
+
         check_enqueue_d = async_wrapper.listener.dequeue(False)
         log_record_array_outer.append(check_enqueue_d)
+
 
     assert async_wrapper.queue.empty()
     assert log_record_array_inter == log_record_array_outer
