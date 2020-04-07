@@ -8,7 +8,7 @@ import ujson
 from tamarco.core.logging.formatters.colored import ColoredFormatter
 from tamarco.core.logging.formatters.logstash import LogstashFormatterVersion0, LogstashFormatterVersion1
 from tamarco.core.logging.formatters.syslog import SyslogFormatter
-from tamarco.core.logging.handlers.asyncronous import AsyncWrapperHandler, MAX_QUEUE_SIZE, VALUE_TOLERANCE_PERCENTAGE
+from tamarco.core.logging.handlers.asyncronous import AsyncWrapperHandler, MAX_QUEUE_SIZE
 
 
 def test_logging_colored_formatter_format_timestamp():
@@ -143,41 +143,3 @@ def test_logging_async_wrapper_handler():
 
     assert async_wrapper.queue.empty()
     assert log_record_array_inter == log_record_array_outer
-
-
-def test_logging_async_wrapper_handler_tolerance():
-    async_wrapper = AsyncWrapperHandler(handler=HandlerCheck)
-    assert async_wrapper.queue.maxsize == MAX_QUEUE_SIZE
-
-    num_record_array_enqueue = 0
-    num_record_array_dequeue = 0
-    counter = 0
-    assert not HandlerCheck.check_data
-
-    async_wrapper.listener.stop()
-    time.sleep(2)
-
-    for _ in range(MAX_QUEUE_SIZE):
-        time_stamp = 1_400_000_000
-        log_record = LogRecord(
-            name="test_logging_ColoredFormatter_format",
-            level=1,
-            pathname="test/logging",
-            lineno=1,
-            msg="hello world",
-            args=["args1", "args2"],
-            exc_info=None,
-        )
-        log_record.created = time_stamp
-        num_record_array_enqueue += 1
-        async_wrapper.emit(log_record)
-        counter += 1
-
-    try:
-        for _ in range(MAX_QUEUE_SIZE * 10):
-            async_wrapper.listener.dequeue(False)
-            num_record_array_dequeue += 1
-    except Exception:
-        pass
-
-    assert num_record_array_dequeue == VALUE_TOLERANCE_PERCENTAGE

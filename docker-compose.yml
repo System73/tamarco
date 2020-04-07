@@ -1,12 +1,5 @@
 version: '2.2'
 
-networks:
-  tamarco:
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.29.0.0/24
-
 services:
   etcd:
     image: "quay.io/coreos/etcd:v3.3"
@@ -17,10 +10,6 @@ services:
       ETCD_API_VERSION: "2"
     ports:
       - 2379:2379
-    networks:
-      tamarco:
-        ipv4_address: 172.29.0.101
-    restart: always
 
   redis:
     image: "grokzen/redis-cluster:4.0.9"
@@ -30,6 +19,3 @@ services:
       STANDALONE: "true"
     ports:
       - '7000-7007:7000-7007'
-    networks:
-      tamarco:
-        ipv4_address: 172.29.0.102
