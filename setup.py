@@ -32,7 +32,7 @@ requirements = [
     "idna==2.8",
     "sanic==19.3.1",
     "cookiecutter==1.6.0",
-    "aiohttp==3.5.4",
+    "aiohttp==3.7.4",
     "aiohttp_cors==0.7.0",
     "aio_etcd==0.4.6.1",
     "objgraph==3.4.1",
