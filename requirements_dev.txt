@@ -1,5 +1,5 @@
 aio-etcd==0.4.6.1
-aiohttp==3.5.4
+aiohttp==3.7.4
 aiohttp-cors==0.7.0
 attrs>=17.4
 black==19.3b0
