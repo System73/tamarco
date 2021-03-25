@@ -46,7 +46,7 @@ requirements = [
     "ujson==1.35",
     "dnspython==1.15.0",
     "dnspython3==1.15.0",
-    "pyYAML==5.1",
+    "pyYAML==5.4",
 ]
 
 setup(
