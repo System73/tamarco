@@ -28,7 +28,7 @@ resources_require = {
 
 requirements = [
     "sanic-plugins-framework==0.8.1",
-    "urllib3==1.25.2",
+    "urllib3==1.26.5",
     "idna==2.8",
     "sanic==19.3.1",
     "cookiecutter==1.6.0",
