@@ -30,7 +30,7 @@ requirements = [
     "sanic-plugins-framework==0.8.1",
     "urllib3==1.25.2",
     "idna==2.8",
-    "sanic==19.3.1",
+    "sanic==20.12.6",
     "cookiecutter==1.6.0",
     "aiohttp==3.5.4",
     "aiohttp_cors==0.7.0",
