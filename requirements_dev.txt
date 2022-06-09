@@ -5,7 +5,7 @@ attrs>=17.4
 black==19.3b0
 bumpversion==0.5.3
 cachetools==3.1.0
-cookiecutter==1.6.0
+cookiecutter==2.1.1
 coverage==4.5.3
 dnspython==1.15.0
 dnspython3==1.15.0
