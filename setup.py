@@ -43,7 +43,7 @@ requirements = [
     "inflection==0.3.1",
     "sanic-cors==0.9.8",
     "cachetools==3.1.0",
-    "ujson==1.35",
+    "ujson==5.4.0",
     "dnspython==1.15.0",
     "dnspython3==1.15.0",
     "pyYAML==5.1",
