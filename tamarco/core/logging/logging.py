@@ -4,6 +4,7 @@ import sys
 from tamarco.core.patterns import Singleton
 from tamarco.core.utils import check_connection_http_url
 from .formatters.colored import ColoredFormatter
+from .formatters.console import ConsoleFormatter
 from .formatters.logstash import LogstashFormatterVersion1
 from .formatters.syslog import SyslogFormatter
 
@@ -27,6 +28,7 @@ class Logging(metaclass=Singleton):
                     "%(filename)s:%(lineno)s %(funcName)s] %(message)s"
                 },
                 "colored": {"()": ColoredFormatter, "color_blind": self.color_blind},
+                "console": {"()": ConsoleFormatter},
                 "syslog_format": {"()": SyslogFormatter},
                 "logstash": {"()": LogstashFormatterVersion1},
             },
@@ -103,7 +105,7 @@ class Logging(metaclass=Singleton):
         if await self.settings.get("stdout", True):
             self.logging_config["handlers"]["stdout"] = {
                 "class": "logging.StreamHandler",
-                "formatter": "colored",
+                "formatter": "console",
                 "level": PROFILES[await self.settings.get("profile")]["loglevel"],
                 "stream": sys.stdout,
             }
