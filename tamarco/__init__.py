@@ -1,3 +1,3 @@
 __author__ = "System73 Engineering Team"
 __email__ = "opensource@system73.com"
-__version__ = "0.1.1"
+__version__ = "0.1.2"
