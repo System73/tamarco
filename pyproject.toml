@@ -9,6 +9,8 @@ exclude = '''
   | \.tox
   | \.venv
   | virtualenv
+  | env
+  | venv
   | _build
   | buck-out
   | build

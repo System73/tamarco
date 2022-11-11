@@ -175,7 +175,7 @@ class MicroserviceBase(metaclass=Singleton):
 
 
 class MicroserviceContext(MicroserviceBase):
-    """"This class is used to use tamarco resources without using a full microservice,
+    """ "This class is used to use tamarco resources without using a full microservice,
     for example a script.
     """
 

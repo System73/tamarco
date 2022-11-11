@@ -51,8 +51,7 @@ async def sanic_status_endpoint(request):
 
 
 class StatusResource(BaseResource, metaclass=Singleton):
-    """
-    """
+    """ """
 
     depends_on = ["tamarco_http_report_server"]
     loggers_names = ["tamarco.status"]

@@ -4,9 +4,9 @@ from tamarco.core.settings.settings import Settings, SettingsNotLoadedYet
 
 class SettingProxy(Proxy):
     """Proxy pattern used as a pointer/reference, this proxy is returned
-     by when_loaded_setting function. When the settings are loaded
-     the obj that proxies this proxy is set to the value of the setting.
-     If is used before the load of settings a SettingsNotLoadedYet exception is raised.
+    by when_loaded_setting function. When the settings are loaded
+    the obj that proxies this proxy is set to the value of the setting.
+    If is used before the load of settings a SettingsNotLoadedYet exception is raised.
     """
 
     def __getattribute__(self, name):

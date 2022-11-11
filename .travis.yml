@@ -41,8 +41,8 @@ deploy:
 # Allow SonarCloud to access the full SCM history.
 git:
   depth: false
-addons:
-  sonarcloud:
-    organization: "system73"
-    token:
-      secure: "U5/eJihM4uk7PG/VLsSMFhk2qhkfDqAp2AiJqvOv+DhWWUQBssPFLf0Q0rpeYv0vZQc6LpBYclIyjGQOlWgFX7zuN1jzLxZEGT6jhCBZ7Jp5WR+LzaB6yowmES50YW3m5KbO/6kgOIOmC/SxXI4xpzRmzJDdxWduRZkqXsjCsoxAvxitGDxHDFTOkG8y8z6dARKFGVFFRsFqlNXWekxrk46FWmT3+tWi6mxHaAfn+TCHPAfKz9D7RxwPTt7LS5ZI+3zrE+hdoRiBW8+gFxRj6ZwgsP59hCNlrvXibKTQIAb0rxSSUfe/Z3SBZOWLc67pI3oKCMBWPvEoGRf5jOLGIDd+RiQKvvnAr0wP9mP1uRKY2t7S7dAc+wf+cF5H9FozH00+/wD1Fdr/ebsCyzuPP6S6dlnElEE6ZY6dUJ19uwaggXIJzbyVwiHwB968Hutu2rU8/+kjKCVuaazsbi+MTb+3Ylc3SKnE5WR8qU3CDj/cU5aZ3lru4gRqxeuDbEmgqnHI3cUN5EZptvdOis07AMnZ61K9uNt1CHAE5cb2+D+DmprJZQMC5l1TYid8BmJedxk6b3UxTqyEGWx3mPioms9N9MRPUr3BTvklSLHGbzpwScYI/Qb+vm/cgCNSDcus6yjftjgP6t7Qud/Jm56fbsbKIJibV7qESVPTtZQvjVk="
+#addons:
+#  sonarcloud:
+#    organization: "system73"
+#    token:
+#      secure: "U5/eJihM4uk7PG/VLsSMFhk2qhkfDqAp2AiJqvOv+DhWWUQBssPFLf0Q0rpeYv0vZQc6LpBYclIyjGQOlWgFX7zuN1jzLxZEGT6jhCBZ7Jp5WR+LzaB6yowmES50YW3m5KbO/6kgOIOmC/SxXI4xpzRmzJDdxWduRZkqXsjCsoxAvxitGDxHDFTOkG8y8z6dARKFGVFFRsFqlNXWekxrk46FWmT3+tWi6mxHaAfn+TCHPAfKz9D7RxwPTt7LS5ZI+3zrE+hdoRiBW8+gFxRj6ZwgsP59hCNlrvXibKTQIAb0rxSSUfe/Z3SBZOWLc67pI3oKCMBWPvEoGRf5jOLGIDd+RiQKvvnAr0wP9mP1uRKY2t7S7dAc+wf+cF5H9FozH00+/wD1Fdr/ebsCyzuPP6S6dlnElEE6ZY6dUJ19uwaggXIJzbyVwiHwB968Hutu2rU8/+kjKCVuaazsbi+MTb+3Ylc3SKnE5WR8qU3CDj/cU5aZ3lru4gRqxeuDbEmgqnHI3cUN5EZptvdOis07AMnZ61K9uNt1CHAE5cb2+D+DmprJZQMC5l1TYid8BmJedxk6b3UxTqyEGWx3mPioms9N9MRPUr3BTvklSLHGbzpwScYI/Qb+vm/cgCNSDcus6yjftjgP6t7Qud/Jm56fbsbKIJibV7qESVPTtZQvjVk="

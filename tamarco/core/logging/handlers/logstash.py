@@ -49,15 +49,15 @@ class AsyncUDPLogstashHandler(AsyncWrapperHandler):
     ):
         """Initialize the asynchronous Logstash handler.
 
-         Args:
-            host (str): The host of the logstash server.
-            port (int): The port of the logstash server.
-            message_type (str): The type of the message (always be 'logstash').
-            fqdn (bool): If True, the host field in the log record will be the fully qualified domain. Otherwise,
-                the system hostname.
-            service_name (str): Service name.
-            deploy_name (str): Deploy name.
-            version (int): If 1 it is used the Logstash formatter version 1. Otherwise, the logstash formatter
-                version 0.
+        Args:
+           host (str): The host of the logstash server.
+           port (int): The port of the logstash server.
+           message_type (str): The type of the message (always be 'logstash').
+           fqdn (bool): If True, the host field in the log record will be the fully qualified domain. Otherwise,
+               the system hostname.
+           service_name (str): Service name.
+           deploy_name (str): Deploy name.
+           version (int): If 1 it is used the Logstash formatter version 1. Otherwise, the logstash formatter
+               version 0.
         """
         super().__init__(UDPLogstashHandler, host, port, message_type, fqdn, service_name, deploy_name, version)

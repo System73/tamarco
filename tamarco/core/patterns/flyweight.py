@@ -107,7 +107,7 @@ class FlyweightWithLabels(Flyweight):
         Returns:
             object: new instance is the key with, its labels, does not exist in the instances dictionary,
             or the instance already created with that key and labels.
-       """
+        """
         labels = kw.get("labels")
         if not labels:
             instance = Flyweight.__call__(cls, key, *args, **kw)

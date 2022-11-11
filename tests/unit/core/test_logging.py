@@ -1,8 +1,9 @@
 import socket
 import time
-import ujson
 from datetime import datetime
 from logging import LogRecord
+
+import ujson
 
 from tamarco.core.logging.formatters.colored import ColoredFormatter
 from tamarco.core.logging.formatters.console import ConsoleFormatter
@@ -16,23 +17,35 @@ def test_logging_colored_formatter_format_timestamp():
     _datetime = datetime.fromtimestamp(timestamp).isoformat(sep=" ")
     assert _datetime == ColoredFormatter.format_timestamp(timestamp)
 
+
 def test_logging_consoled_formatter_format_timestamp():
     timestamp = time.time()
-    _datetime = datetime.fromtimestamp(timestamp).isoformat(sep=' ')
+    _datetime = datetime.fromtimestamp(timestamp).isoformat(sep=" ")
     assert _datetime == ConsoleFormatter.format_timestamp(timestamp)
 
+
 def test_logging_consoled_formatter_format():
-    log_record = LogRecord(name='test_logging_ConsoleFormatter_format', level=1, pathname='test/logging', lineno=1,
-                           msg='hello world', args=['args1', 'args2'], exc_info=None)
+    log_record = LogRecord(
+        name="test_logging_ConsoleFormatter_format",
+        level=1,
+        pathname="test/logging",
+        lineno=1,
+        msg="hello world",
+        args=["args1", "args2"],
+        exc_info=None,
+    )
     timestamp = 1400000000
     log_record.created = timestamp
-    log_record.extra_msg = {'extra_msg1': 'foo'}
+    log_record.extra_msg = {"extra_msg1": "foo"}
     extra_msg_str = '{"extra_msg1":"foo"}'
     formatter = ConsoleFormatter()
     new_record = formatter.format(log_record)
-    assert new_record == f"[{formatter.format_timestamp(log_record.created)}] [{log_record.levelname}] " \
-                         f"[({log_record.name}) {log_record.filename}:{log_record.lineno}]  hello world " \
-                         f"[{extra_msg_str}]"
+    assert (
+        new_record == f"[{formatter.format_timestamp(log_record.created)}] [{log_record.levelname}] "
+        f"[({log_record.name}) {log_record.filename}:{log_record.lineno}]  hello world "
+        f"[{extra_msg_str}]"
+    )
+
 
 def test_logging_logstash_formatter_version_0():
     log_record = LogRecord(

@@ -11,9 +11,9 @@ from tamarco.resources.basic.metrics.reporters import CarbonHandler, FileHandler
 
 @pytest.fixture
 def meters_manager():
-    """ This fixture is needed because if the metrics tests fails and exit before
+    """This fixture is needed because if the metrics tests fails and exit before
     the MetersManagers call to its stop() function, the coverage process will never stop
-    (the MetersManagers have to kill their threads). """
+    (the MetersManagers have to kill their threads)."""
 
     yield
 

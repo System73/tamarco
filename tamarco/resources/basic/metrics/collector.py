@@ -8,7 +8,7 @@ logger = logging.getLogger("tamarco.metrics")
 
 
 class MetricsCollector:
-    """"Collect all the metrics from all the meters and using all the handler configured.
+    """ "Collect all the metrics from all the meters and using all the handler configured.
 
     Attributes:
         meters (list): List of meters from which the metrics will be obtained.

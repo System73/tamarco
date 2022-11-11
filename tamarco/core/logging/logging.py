@@ -238,7 +238,7 @@ class Logging(metaclass=Singleton):
         """
 
         async def watcher_callback(key, setting):
-            """ Callback when the watcher reports that the key `key` has changed in the etcd.
+            """Callback when the watcher reports that the key `key` has changed in the etcd.
 
             Args:
                 key (str): etcd key.

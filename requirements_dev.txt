@@ -3,7 +3,7 @@ aio-etcd==0.4.6.1
 aiohttp==3.5.4
 aiohttp-cors==0.7.0
 attrs>=17.4
-black==19.3b0
+black==22.3.0
 bumpversion==0.5.3
 cachetools==3.1.0
 cookiecutter==1.6.0
