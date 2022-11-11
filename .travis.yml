@@ -4,19 +4,21 @@ services:
 # The default distribution (ubuntu 14.04) don't support Python 3.7.
 matrix:
   include:
-    - dist: trusty
-      python: "3.6"
-      script:
-        - make test-coverage
-        - make linters
-        - sonar-scanner
+#    - dist: trusty
+#      python: "3.6"
+#      script:
+#        - make test-coverage
+#        - make linters
+#        - sonar-scanner
     - dist: xenial
       python: "3.7"
       script: make test
-    - dist: xenial
-      python: "3.8"
-      script: make test
+#    - dist: xenial
+#      python: "3.8"
+#      script: make test
 install:
+  # https://travis-ci.community/t/build-error-for-python-3-7-on-two-different-projects/12895
+  - pip install -U importlib_metadata
   - pip install -r requirements_dev.txt
 notifications:
   email:
