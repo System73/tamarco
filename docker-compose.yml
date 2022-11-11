@@ -10,9 +10,8 @@ services:
       ETCD_API_VERSION: "2"
     ports:
       - 2379:2379
-
   redis:
-    image: "grokzen/redis-cluster:4.0.9"
+    image: "grokzen/redis-cluster:5.0.0"
     container_name: "redis"
     restart: always
     environment:
