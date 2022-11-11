@@ -15,7 +15,7 @@ matrix:
       script:
         - make test-coverage
         - make linters
-        - sonar-scanner
+#        - sonar-scanner
 #    - dist: xenial
 #      python: "3.8"
 #      script: make test

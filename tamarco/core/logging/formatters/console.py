@@ -40,10 +40,10 @@ class ConsoleFormatter(logging.Formatter):
 
         if hasattr(record, "extra_msg"):
             try:
-                new_record += f"\n {ujson.dumps(record.extra_msg, indent=3)}"
+                new_record += f" [{ujson.dumps(record.extra_msg)}]"
             except Exception:
                 pass
         if record.exc_info:
-            new_record += f"\n {self.formatException(record.exc_info)}"
+            new_record += f" {self.formatException(record.exc_info)}"
 
         return new_record
